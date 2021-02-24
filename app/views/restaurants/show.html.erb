@@ -1,14 +1,28 @@
 <h1><%= @restaurant.name %></h1>
 
-<p><%= @restaurant.category %></p>
-<p><%= @restaurant.phone_number %></p>
-<p><%= @restaurant.address %></p>
 
-<ul>
+<div class="card">
+  <div class="card-body">    
+    <p class="text-bold text-grey"><%= @restaurant.category %></p>
+    <p><%= @restaurant.phone_number %></p>
+    <p><%= @restaurant.address %></p>
+  </div>
+</div>
+
+<h3>Reviews:</h3>
+<ul class="list-group" id="list-margins">
   <% @restaurant.reviews.each do |review| %>
-    <li><%= review.rating %> - <%= review.content %></li>
+    <li class="list-group-item">
+      <p class="text-bold"><%= review.rating %>/5</p>
+      <p><%= review.content %></p>
+    </li>
   <% end %>
 </ul>
 
-<%= link_to "back to list", restaurants_path %>
-<%= link_to "add a review", new_restaurant_review_path(@restaurant) %>
+<%= simple_form_for [ @restaurant, @review ] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :content %>  
+  <%= f.submit "Add review", class: "btn btn-dark" %>
+<% end %>
+
+

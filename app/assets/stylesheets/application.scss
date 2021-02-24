@@ -11,3 +11,33 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+li{
+  list-style-type: none;
+}
+
+h1{
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+h3{
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.text-bold{
+  font-weight: bold;
+}
+
+.text-grey{
+  color: rgb(172, 171, 171);
+}
+
+#button-space{
+  margin-top: 16px;
+}
+
+#list-margins{
+  margin-bottom: 24px;
+}
